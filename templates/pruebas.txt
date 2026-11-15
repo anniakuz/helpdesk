@@ -1,0 +1,22 @@
+Plan de pruebas ejecutadas
+
+Prueba 1. Transicion de estados en POO
+Accion: python core_modelos.py
+Entrada: ticket cerrado, se intenta pasar a En Proceso
+Resultado esperado: se lanza EstadoInvalidoError
+Resultado obtenido: EstadoInvalidoError: Transicion no permitida: Cerrado -> En Proceso
+Estado: correcta
+
+Prueba 2. Validacion de campos vacios en el formulario web
+Accion: python manage.py test (test_formulario_campos_vacios)
+Entrada: POST a /nueva/ sin datos
+Resultado esperado: el formulario muestra "Este campo es obligatorio" y no se guarda nada
+Resultado obtenido: respuesta 200 con errores y 0 incidencias en base de datos
+Estado: correcta
+
+Prueba 3. Alta de una incidencia desde la web
+Accion: python manage.py test (test_formulario_crea_incidencia)
+Entrada: POST a /nueva/ con datos validos
+Resultado esperado: se guarda la incidencia y se redirige al listado
+Resultado obtenido: redireccion a / y 1 incidencia en base de datos
+Estado: correcta
